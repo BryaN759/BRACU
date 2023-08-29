@@ -1,0 +1,15 @@
+//for task 1
+touch SRJF.c
+gedit SRJF.c
+gcc -o srjf SRJF.c
+./srjf
+//for task 2
+touch RR.c
+gedit RR.c
+gcc -o rr RR.c
+./rr
+//for task 3
+touch PS.c
+gedit PS.c
+gcc -o ps PS.c
+./ps

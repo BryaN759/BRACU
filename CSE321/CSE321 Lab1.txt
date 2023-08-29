@@ -1,0 +1,158 @@
+hp@ub80103ip99:~$ whoami                                             //to identify the user
+hp
+hp@ub80103ip99:~$ pwd                                                //path of the directory
+/home/hp
+hp@ub80103ip99:~$ ls                                                 //see all the files present in the directory
+ 17201083_1.txt     ASIF2            'lab 4'        performance   
+ 17201083_2.txt     class             lab4.c        Pictures
+ 
+ 
+hp@ub80103ip99:~$ cd Desktop                                          //access the desired directory
+hp@ub80103ip99:~/Desktop$ mkdir Lab1	                              //making a new directory
+hp@ub80103ip99:~/Desktop$ ls                                          //all the files present in Desktop directory
+18101109  18101109.zip  Lab1
+hp@ub80103ip99:~/Desktop$ cd Lab1                                     //accessing directory named Lab1
+hp@ub80103ip99:~/Desktop/Lab1$ cd ..                                  //going a step back of the current directory 
+hp@ub80103ip99:~/Desktop$ cd Lab1
+hp@ub80103ip99:~/Desktop/Lab1$ cat > first.txt                        // creating a new text file 
+Hello World
+This is CSE321 Lab01                                                  //writings of the text file
+								      //Press CTRL+D to leave the text file.
+hp@ub80103ip99:~/Desktop/Lab1$ cat first.txt                          //read the text file
+Hello World
+This is CSE321 Lab01
+hp@ub80103ip99:~/Desktop/Lab1$ nl first.txt                           //number of lines present in the text file.
+     1	Hello World
+     2  This is CSE321 Lab01
+hp@ub80103ip99:~/Desktop/Lab1$ mkdir new			      //maing a new directory named new
+hp@ub80103ip99:~/Desktop/Lab1$ cp first.txt new			      //coping first.txt to new(directory)
+
+
+hp@ub80103ip99:~/Desktop/Lab1$ cd new                                 //accessing the new directory
+hp@ub80103ip99:~/Desktop/Lab1/new$ rm first.txt                       //removing the text file
+hp@ub80103ip99:~/Desktop/Lab1/new$ ls
+hp@ub80103ip99:~/Desktop/Lab1/new$ cd ..
+hp@ub80103ip99:~/Desktop/Lab1$ mv first.txt new                       //moving first.txt to new(directory)
+hp@ub80103ip99:~/Desktop/Lab1$ cd new
+hp@ub80103ip99:~/Desktop/Lab1/new$ ls
+first.txt
+hp@ub80103ip99:~/Desktop/Lab1/new$ cd ..
+hp@ub80103ip99:~/Desktop/Lab1$ ls
+new
+hp@ub80103ip99:~/Desktop/Lab1$ cd
+hp@ub80103ip99:~$ cd Desktop
+hp@ub80103ip99:~/Desktop$ ls
+18101109  18101109.zip  Lab1
+hp@ub80103ip99:~/Desktop$ cd
+hp@ub80103ip99:~$ ls -a                                                //to see all the hidden files present in the directory
+ .                  Desktop           new_folder
+ ..                 dg-gnome-theme    .pam_environment
+ 17201083_1.txt     Documents         performance
+ 17201083_2.txt     Downloads         Pictures
+ 17201083_4.txt     file1.txt         .pki
+ 19301084_4.txt     file5.txt         .profile
+ 20341032_Task2.c   .gnupg            Public
+ Arefin1           '<invalid path>'   snap
+ Arefin2           'lab 4'            .ssh
+ Arefin3            lab4.c            .sudo_as_admin_successful
+ ASIF1              labb4.txt         t1.c
+ ASIF2              .local            task_1.c
+ .bash_history      mahzabin1         task1.c
+ .bash_logout       mahzabin2         Templates
+ .bashrc            mahzabin3         .thunderbird
+ .cache             .mozilla          Videos
+ class              Music             .vscode
+ .config           'new folder'
+hp@ub80103ip99:~$ ls D*                                                       //all the files staring with letter D and their contents
+Desktop:
+18101109  18101109.zip  Lab1
+
+Documents:
+19201096_4.txt  ASIF2  a.txt     lab1
+ASIF1           ASIF3  demo.txt  project.txt
+
+Downloads:
+'Domain Add Ubuntu Machine To Windows_V2.0.docx'
+ 
+hp@ub80103ip99:~$ cd                                                        //to get back to the main directory.
+
+hp@ub80103ip99:~$ cd Desktop
+hp@ub80103ip99:~/Desktop$ ls -l                                             //to see the access granted to user, group, others.
+total 20
+drwxrwxr-x 2 hp hp  4096 ডিসেম্বর  13 16:02 18101109                                                                                  
+-rw-rw-r-- 1 hp hp 10436 ডিসেম্বর  13 16:05 18101109.zip                           //d-directory, r-read, w-write, x-execute permissions
+drwxrwxr-x 3 hp hp  4096 ফেব       1 21:14 Lab1                                    //first 3 for users, 2nd 3 for group, 3rd 3 for others
+
+hp@ub80103ip99:~/Desktop$ chmod o+w Lab1				    //giving permission of write(w) to others(o)
+hp@ub80103ip99:~/Desktop$ ls -l
+total 20
+drwxrwxr-x 2 hp hp  4096 ডিসেম্বর  13 16:02 18101109
+-rw-rw-r-- 1 hp hp 10436 ডিসেম্বর  13 16:05 18101109.zip
+drwxrwxrwx 3 hp hp  4096 ফেব       1 21:14 Lab1
+hp@ub80103ip99:~/Desktop$ chmod o-x Lab1                                    //taking away permission of execute(x) from others(o)
+hp@ub80103ip99:~/Desktop$ ls -l
+total 20
+drwxrwxr-x 2 hp hp  4096 ডিসেম্বর  13 16:02 18101109
+-rw-rw-r-- 1 hp hp 10436 ডিসেম্বর  13 16:05 18101109.zip
+drwxrwxrw- 3 hp hp  4096 ফেব       1 21:14 Lab1
+hp@ub80103ip99:~/Desktop$ chmod u=w Lab1                                    //giving only permission to write(w) to users(u)
+hp@ub80103ip99:~/Desktop$ ls -l
+total 20
+drwxrwxr-x 2 hp hp  4096 ডিসেম্বর  13 16:02 18101109
+-rw-rw-r-- 1 hp hp 10436 ডিসেম্বর  13 16:05 18101109.zip
+d-w-rwxrw- 3 hp hp  4096 ফেব       1 21:14 Lab1
+
+
+hp@ub80103ip99:~/Desktop$ chmod 763 Lab1                                    //4(r)+2(w)+1(x)=7 for users, 4(r)+2(w)=6 for group, 2(w)+1(x)=3 for others.
+hp@ub80103ip99:~/Desktop$ ls -l
+total 20
+drwxrwxr-x 2 hp hp  4096 ডিসেম্বর  13 16:02 18101109
+-rw-rw-r-- 1 hp hp 10436 ডিসেম্বর  13 16:05 18101109.zip
+drwxrw--wx 3 hp hp  4096 ফেব       1 21:14 Lab1
+
+hp@ub80103ip99:~/Desktop$ chmod 760 Lab1                                    //4(r)+2(w)+1(x)=7 for users, 4(r)+2(w)=6 for group, 0 for others.
+hp@ub80103ip99:~/Desktop$ ls -l
+total 20
+drwxrwxr-x 2 hp hp  4096 ডিসেম্বর  13 16:02 18101109
+-rw-rw-r-- 1 hp hp 10436 ডিসেম্বর  13 16:05 18101109.zip
+drwxrw---- 3 hp hp  4096 ফেব       1 21:14 Lab1
+
+
+hp@ub80103ip99:~/Desktop$ cd Lab1
+hp@ub80103ip99:~/Desktop/Lab1$ cat >new.txt                                 //creating another text file inside Lab1 directory
+Christiano Ronaldo
+Ronaldo Lima
+Ron Wizley
+Wayne Roonye
+
+hp@ub80103ip99:~/Desktop/Lab1$ cat new.txt                                  //reading the text file
+Christiano Ronaldo
+Ronaldo Lima
+Ron Wizley
+Wayne Roonye
+
+hp@ub80103ip99:~/Desktop/Lab1$ grep "Ron" new.txt                           //fetch all the text that has "Ron" as a substring
+Christiano Ronaldo
+Ronaldo Lima
+Ron Wizley
+
+
+
+hp@ub80103ip99:~/Desktop/Lab1$ grep -wi "Ron" new.txt                       //fetch all the text that has "Ron" as a separate word
+Ron Wizley
+
+hp@ub80103ip99:~/Desktop/Lab1$ grep -win "Ron" new.txt                      //fetch the text and line number that has "Ron" as a separate word
+3:Ron Wizley
+
+
+hp@ub80103ip99:~/Desktop/Lab1$ ln -s new.txt new2.txt                       //making a shortcut file of new.txt naming it new2.txt
+hp@ub80103ip99:~/Desktop/Lab1$ ls
+l1.txt  new  new2.txt  new.txt
+
+hp@ub80103ip99:~/Desktop/Lab1$ ln new.txt new3.txt                          //making a normal file of new.txt naming it new3.txt
+hp@ub80103ip99:~/Desktop/Lab1$ ls
+l1.txt  new  new2.txt  new3.txt  new.txt
+
+
+
+
